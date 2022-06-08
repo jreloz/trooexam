@@ -5,11 +5,12 @@
 
     <form #profileForm="ngForm" (ngSubmit)="onSubmit(profileForm.value)">
         
+        {{profileInfo.first_name}}
         <div class="col-md-12">
             <div class="form-row">
                 <div class="form-group col-md-4">
                   <label for="first_name">Firstname</label>
-                  <input type="text" class="form-control" ngModel name="first_name" id="first_name">
+                  <input type="text" class="form-control" ngModel value="" name="first_name" id="first_name">
                 </div>
                 <div class="form-group col-md-4">
                   <label for="middle_name">Middlename</label>
@@ -35,6 +36,6 @@
         </div>
 
 
-        <button type="submit" class="btn btn-primary mt-3">Save</button>
+        <button type="submit" class="btn btn-primary mt-3">{{buttonName}}</button>
       </form>
 </div>

@@ -52,6 +52,35 @@ module.exports = function(app, db){
 
 
 
+    app.get('/profile/:id',(request,response)=>{
+
+        let profileid = request.params.id;
+
+        let querystring = `SELECT * FROM profile WHERE id = '${profileid}'`;
+
+        db.query(querystring,(error,result)=>{
+            if (error) {
+                console.log("Error",error.sqlMessage);
+            } else {
+                if (result.length > 0) {
+                    response.send({
+                        statuscode: 200,
+                        data: result,
+                        message: "Single Profile"
+                    });
+                } else {
+                    response.send({
+                        statuscode: 200,
+                        data: [],
+                        message: "Profile List is Empty"
+                    });
+                }
+            }
+        })
+    });
+
+
+
     app.delete('/profile/:id',(request,response)=>{
 
         let profileid = request.params.id;
@@ -69,6 +98,32 @@ module.exports = function(app, db){
                 });
             }
         })
-    })
+    });
+
+
+
+    app.post('/profile/update/:id',(request,response)=>{
+        
+        let profileid = request.params.id;
+        let first_name = request.body.first_name;
+        let middle_name = request.body.middle_name;
+        let last_name = request.body.last_name;
+        let email = request.body.email;
+        let mobile_number = request.body.mobile_number;
+
+
+        let querystring = `UPDATE profile set first_name = '${first_name}', middle_name = '${middle_name}', last_name = '${last_name}', email = '${email}', mobile_number = '${mobile_number}' WHERE id = '${profileid}'`;
+
+        db.query(querystring,(error,result)=>{
+            if (error) {
+                console.log("Error",error.sqlMessage);
+            } else {
+                response.send({
+                    statuscode:201,
+                    message:"Profile Updated"
+                });
+            }
+        })
+    });
     
 }

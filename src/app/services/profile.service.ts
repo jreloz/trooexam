@@ -23,13 +23,18 @@ export class ProfileService {
   }
 
 
+  viewProfile(id:any):Observable<any>{
+    return this.HttpClient.get(`${this.baseUrl}/profile/${id}`)
+  }
+
+
   deleteProfile(id:any):Observable<any>{
     return this.HttpClient.delete(`${this.baseUrl}/profile/${id}`)
   }
 
 
-  updateProfile(id:any):Observable<any>{
-    return this.HttpClient.delete(`${this.baseUrl}/profile/${id}`)
+  updateProfile(id:any,profileForm:any):Observable<any>{
+    return this.HttpClient.post(`${this.baseUrl}/profile/update/${id}`,profileForm)
   }
   
 }

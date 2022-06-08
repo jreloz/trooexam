@@ -1,4 +1,5 @@
 import { Component, OnInit,Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ProfileService } from 'src/app/services/profile.service';
 
 @Component({
@@ -9,19 +10,34 @@ import { ProfileService } from 'src/app/services/profile.service';
 export class ViewProfileComponent implements OnInit {
 
 
+
+  constructor(
+    private profileService: ProfileService,
+    private activatedRoute: ActivatedRoute
+  ) { 
+
+  }
+
   
-  constructor(private profileService: ProfileService) { }
+  profileId:string = "";
+
 
   ngOnInit(): void {
+    let params: any = this.activatedRoute.snapshot.params;
+    this.profileId = params.id;
+
+    this.getProfileInfo();
   }
 
 
-  onSubmit(data:any): void {
+  getProfileInfo(){
+    this.profileService.viewProfile(this.profileId).subscribe((response)=>{
+      this.profileInfo = response.data;
+    })
+  }
+
+
+  buttonName = "Update";
+  profileInfo:any = [];
  
-    this.profileService.addProfile(data).subscribe((response)=>{
-      console.log(response);
-      
-    });
-   // this.profileForm.reset();
-  }
 }
