@@ -1,0 +1,40 @@
+<div class="container">
+    
+
+
+
+    <form #profileForm="ngForm" (ngSubmit)="onSubmit(profileForm.value)">
+        
+        <div class="col-md-12">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="first_name">Firstname</label>
+                  <input type="text" class="form-control" ngModel name="first_name" id="first_name">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="middle_name">Middlename</label>
+                  <input type="text" class="form-control" ngModel name="middle_name" id="middle_name">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="last_name">Lastname</label>
+                  <input type="text" class="form-control" ngModel name="last_name" id="last_name">
+                </div>
+              </div>
+      
+      
+              <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" ngModel name="email" id="email">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="mobile_number">Mobile Number</label>
+                    <input type="text" class="form-control" ngModel name="mobile_number" id="mobile_number">
+                  </div>
+                </div>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary mt-3">Save</button>
+      </form>
+</div>

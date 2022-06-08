@@ -1,0 +1,35 @@
+
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Firstname</th>
+            <th scope="col">Middlename</th>
+            <th scope="col">Lastname</th>
+            <th scope="col">Email</th>
+            <th scope="col">Mobile Nubmer</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr *ngFor="let profile of profileList">
+            <th scope="row">{{profile.id}}</th>
+            <td>{{profile.first_name}}</td>
+            <td>{{profile.middle_name}}</td>
+            <td>{{profile.last_name}}</td>
+            <td>{{profile.email}}</td>
+            <td>{{profile.mobile_number}}</td>
+            <td>
+                <a routerLink="/profile/{{profile.id}}" type="button" class="btn btn-warning ml-2">Edit</a>
+                <button (click)="deleteProfile(profile.id)" type="button" class="btn btn-danger ml-2">Delete</button>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+
+     
+      
+</div>
