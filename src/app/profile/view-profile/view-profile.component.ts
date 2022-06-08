@@ -38,6 +38,6 @@ export class ViewProfileComponent implements OnInit {
 
 
   buttonName = "Update";
-  profileInfo:any = [];
+  profileInfo:any = {};
  
 }

@@ -3,6 +3,8 @@ import { ProfileService } from 'src/app/services/profile.service';
 import { FormBuilder } from '@angular/forms';
 import { Profile } from 'src/app/models/profile';
 import { response } from 'express';
+import {Router} from "@angular/router"
+
 
 @Component({
   selector: 'app-create-profile',
@@ -14,10 +16,11 @@ export class CreateProfileComponent implements OnInit {
 
   @Input() buttonName:string = "Save";
   @Input() profileId:string = "";
-  @Input() profileInfo:any = [];
+  @Input() profileInfo:any = {};
 
   constructor(
     private profileService: ProfileService,
+    private router: Router
   ) { }
 
  
@@ -36,6 +39,7 @@ export class CreateProfileComponent implements OnInit {
       this.updateProfile(data);
     }
    
+    this.router.navigate(['/'])
   }
 
 

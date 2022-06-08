@@ -65,7 +65,7 @@ module.exports = function(app, db){
                 if (result.length > 0) {
                     response.send({
                         statuscode: 200,
-                        data: result,
+                        data: result[0],
                         message: "Single Profile"
                     });
                 } else {

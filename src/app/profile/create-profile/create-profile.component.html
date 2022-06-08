@@ -5,20 +5,20 @@
 
     <form #profileForm="ngForm" (ngSubmit)="onSubmit(profileForm.value)">
         
-        {{profileInfo.first_name}}
+       
         <div class="col-md-12">
             <div class="form-row">
                 <div class="form-group col-md-4">
                   <label for="first_name">Firstname</label>
-                  <input type="text" class="form-control" ngModel value="" name="first_name" id="first_name">
+                  <input type="text" class="form-control" ngModel value="{{profileInfo.first_name}}" name="first_name" id="first_name">
                 </div>
                 <div class="form-group col-md-4">
                   <label for="middle_name">Middlename</label>
-                  <input type="text" class="form-control" ngModel name="middle_name" id="middle_name">
+                  <input type="text" class="form-control" ngModel value="{{profileInfo.middle_name}}" name="middle_name" id="middle_name">
                 </div>
                 <div class="form-group col-md-4">
                   <label for="last_name">Lastname</label>
-                  <input type="text" class="form-control" ngModel name="last_name" id="last_name">
+                  <input type="text" class="form-control" ngModel value="{{profileInfo.last_name}}" name="last_name" id="last_name">
                 </div>
               </div>
       
@@ -26,11 +26,11 @@
               <div class="form-row">
                   <div class="form-group col-md-4">
                     <label for="email">Email</label>
-                    <input type="text" class="form-control" ngModel name="email" id="email">
+                    <input type="text" class="form-control" ngModel name="email" value="{{profileInfo.email}}" id="email">
                   </div>
                   <div class="form-group col-md-4">
                     <label for="mobile_number">Mobile Number</label>
-                    <input type="text" class="form-control" ngModel name="mobile_number" id="mobile_number">
+                    <input type="text" class="form-control" ngModel name="mobile_number" value="{{profileInfo.mobile_number}}" id="mobile_number">
                   </div>
                 </div>
         </div>
