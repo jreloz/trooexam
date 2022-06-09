@@ -15,16 +15,16 @@ export class ProfileService {
 
 
   addProfile(profileForm:any):Observable<any>{
-    return this.HttpClient.post(`${this.baseUrl}/profile`,profileForm);
+    return this.HttpClient.post<Profile>(`${this.baseUrl}/profile`,profileForm);
   }
 
   profileList():Observable<any>{
-    return this.HttpClient.get(`${this.baseUrl}/profile`)
+    return this.HttpClient.get<Profile>(`${this.baseUrl}/profile`)
   }
 
 
   viewProfile(id:any):Observable<any>{
-    return this.HttpClient.get(`${this.baseUrl}/profile/${id}`)
+    return this.HttpClient.get<Profile>(`${this.baseUrl}/profile/${id}`)
   }
 
 
@@ -34,7 +34,7 @@ export class ProfileService {
 
 
   updateProfile(id:any,profileForm:any):Observable<any>{
-    return this.HttpClient.post(`${this.baseUrl}/profile/update/${id}`,profileForm)
+    return this.HttpClient.post<Profile>(`${this.baseUrl}/profile/update/${id}`,profileForm)
   }
   
 }
